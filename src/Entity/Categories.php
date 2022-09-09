@@ -16,6 +16,8 @@ class Categories
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+    #[ORM\Column]
+    private ?int $categoryOrder;
 
     #[ORM\Column(length: 100)]
     private ?string $name = null;
@@ -121,6 +123,18 @@ class Categories
                 $product->setCategories(null);
             }
         }
+
+        return $this;
+    }
+    
+    public function getCategoryOrder(): ?int
+    {
+        return $this->categoryOrder;
+    }
+
+    public function setCategoryOrder(int $categoryOrder): self
+    {
+        $this->categoryOrder = $categoryOrder;
 
         return $this;
     }
