@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use DateTimeImmutable;
+use App\Repository\ProductsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
-use App\Entity\Trait\SlugTrait;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Trait\CreatedAtTrait;
-use App\Repository\ProductsRepository;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\ArrayCollection;
+use App\Entity\Trait\SlugTrait;
 
 #[ORM\Entity(repositoryClass: ProductsRepository::class)]
 class Products
@@ -50,7 +49,6 @@ class Products
     {
         $this->images = new ArrayCollection();
         $this->ordersDetails = new ArrayCollection();
-        $this->created_at = new DateTimeImmutable();
     }
 
     public function getId(): ?int

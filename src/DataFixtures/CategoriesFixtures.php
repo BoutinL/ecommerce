@@ -10,11 +10,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class CategoriesFixtures extends Fixture
 {
     private $counter = 1;
-
-    public function __construct(private SluggerInterface $slugger) {}
-    // Ici j'ai déclaré un constructeur sans avoir à écrire la déclaration 
-    // de la propriété qu'il définit avec $this->slugger = $slugger
-    // C'est une façon de faire propre à PHP8.
+    public function __construct(private SluggerInterface $slugger){}
 
     public function load(ObjectManager $manager): void
     {
@@ -26,9 +22,9 @@ class CategoriesFixtures extends Fixture
         $this->createCategory('Homme', $parent, $manager);
         $this->createCategory('Femme', $parent, $manager);
         $this->createCategory('Enfant', $parent, $manager);
-
         $manager->flush();
     }
+
     public function createCategory(string $name, Categories $parent = null, ObjectManager $manager) {
         $category = new Categories();
         $category->setName($name);
