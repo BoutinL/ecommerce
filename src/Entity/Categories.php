@@ -17,6 +17,21 @@ class Categories
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column]
+    private ?int $categoryOrder;
+
+    public function getCategoryOrder(): ?int
+    {
+        return $this->categoryOrder;
+    }
+
+    public function setCategoryOrder(int $categoryOrder): self
+    {
+        $this->categoryOrder = $categoryOrder;
+
+        return $this;
+    }
+
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 

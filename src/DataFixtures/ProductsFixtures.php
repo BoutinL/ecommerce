@@ -32,7 +32,8 @@ class ProductsFixtures extends Fixture
             $election = $nItems[$rkey];
             $category = $this->getReference('cat-' . $election);
             $product->setCategories($category);
-            $this->setReference("prod-".$prod,$product);
+
+            $this->setReference('prod-' . $prod, $product);
 
             $manager->persist($product);
         }
