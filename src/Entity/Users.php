@@ -7,6 +7,7 @@ use App\Repository\UsersRepository;
 use App\Entity\Trait\CreatedAtTrait;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -59,6 +60,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column]
     private ?bool $is_verified = false;
+
+    public function getIsVerified()
+    {
+        return $this->is_verified;
+    }
+
+    public function setIsVerified(bool $is_verified)
+    {
+        $this->is_verified = $is_verified;
+
+        return $this;
+    }
 
     public function __construct()
     {
